@@ -16,8 +16,8 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            /* Color inicial (portada) y transición suave para el efecto al bajar */
-            background-color: #f0f8ff; /* Un azul muy claro (portada) */
+            /* Color inicial y transición suave para el efecto al bajar */
+            background-color: #e8f5e9; 
             transition: background-color 0.8s ease; 
             color: var(--text-color);
             scroll-behavior: smooth;
@@ -69,7 +69,7 @@
             color: white;
         }
 
-        /* Secciones generales de la página */
+        /* Secciones de la página */
         section {
             padding: 120px 50px 80px;
             min-height: 100vh;
@@ -85,43 +85,7 @@
             margin-bottom: 30px;
         }
 
-        /* NUEVOS Estilos para la SECCIÓN PORTADA (LLAMATIVA) */
-        .portada-hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding: 50px;
-            box-sizing: border-box;
-            position: relative;
-            background: linear-gradient(135deg, #e3f2fd 0%, #a5d6a7 100%); /* Degradado suave de azul a verde */
-            z-index: 1; /* Para que el fondo quede debajo */
-        }
-        /* Título super grande y llamativo de la portada */
-        .portada-hero h1 {
-            font-size: 4.5rem; /* Tamaño gigante */
-            font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.1;
-            color: white; /* Color blanco para resaltar sobre el fondo */
-            text-shadow: 0 4px 10px rgba(0,0,0,0.15); /* Sombra elegante */
-            max-width: 1000px;
-            z-index: 2; /* Para que el texto quede arriba */
-        }
-        /* Pequeña descripción sutil en la portada */
-        .portada-hero p {
-            font-size: 1.4rem;
-            max-width: 700px;
-            margin-top: 0;
-            color: white;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            z-index: 2; /* Para que el texto quede arriba */
-        }
-
-        /* Sección El Proyecto (Contenido) - MODIFICADA para dejar el título arriba */
+        /* Sección Inicio */
         .hero-text {
             max-width: 1200px;
             font-size: 1.2rem;
@@ -131,8 +95,6 @@
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-top: -60px; /* Sube un poco para superponerse sutilmente a la portada */
-            z-index: 2; /* Para que el texto quede arriba */
         }
 
         /* Sección Materiales */
@@ -242,13 +204,9 @@
         </nav>
     </header>
 
-    <div class="portada-hero" id="portada">
-        <h1>KineStep: Panel Generador de Energía Cinética</h1>
-        <p>Universidad Nacional de Colombia - Ingenierías</p>
-    </div>
-
    <section id="inicio">
-                <div class="hero-text">
+        <h1 style="color: black"> KineStep: Panel Generador de Energía Cinética</h1>
+        <div class="hero-text">
             <h3 class="caja-subtitulo" style="color: var(--primary-color); font-size: 1.5rem; margin-bottom: 10px;">¿Y si cada uno de tus pasos pudiera iluminar la ciudad?</h3>
             <p>Nuestro <strong>KineStep</strong> transforma una acción tan cotidiana como caminar en una fuente de electricidad 100% limpia. Este proyecto nace con un objetivo claro: aprovechar la energía cinética que normalmente se desperdicia en las pisadas humanas y demostrar que la recolección de energía a pequeña escala (<em>Energy Harvesting</em>) es una solución real y viable para el futuro.</p>
             
@@ -326,7 +284,7 @@
                     </td>
                     <td>Transistor NPN (BC547)</td>
                     <td>Para liberar la energía de golpe.</td>
-                  <td>$ 1,000</td>
+                    <td>$ 1,000</td>
                 </tr>
                 <tr>
                     <td>
@@ -359,27 +317,35 @@
         <div class="team-grid">
             
             <div class="team-member">
-                                <h3>Julián Mateus Lizarazo Duarte</h3>
+                <!-- <img src="foto1.jpg" alt="Foto Integrante 1"> -->
+                <h3>Julián Mateus Lizarazo Duarte</h3>
                 <p>Director ejecutivo</p>
             </div>
 
             <div class="team-member">
-                                <h3>David Santiago Cuéllar López</h3>
+                <!-- <img src="foto2.jpg" alt="Foto Integrante 2"> -->
+                <h3>David Santiago Cuéllar López</h3>
                 <p>Director Científico</p>
-                            </div>
+                <!-- <p>Ing. Mecatrónica</p> -->
+            </div>
 
             <div class="team-member">
-                                <h3>Juan Angel Vargas Rodríguez</h3>
+                <!-- <img src="foto3.jpg" alt="Foto Integrante 3"> -->
+                <h3>Juan Angel Vargas Rodríguez</h3>
                 <p>Director Científico</p>
-                            </div>
+                <!-- <p>Ing. Mecatrónica</p> -->
+            </div>
 
             <div class="team-member">
-                                <h3>Santiago Galindo Hernandez</h3>
+                <!-- <img src="foto4.jpg" alt="Foto Integrante 4"> -->
+                <h3>Santiago Galindo Hernandez</h3>
                 <p>Director Creativo</p>
-                            </div>
+                <!-- <p>Ing. Agrícola</p> -->
+            </div>
 
             <div class="team-member">
-                                <h3>Juan Pablo Trujillo Delgadillo</h3>
+                <!-- <img src="foto5.jpg" alt="Foto Integrante 5"> -->
+                <h3>Juan Pablo Trujillo Delgadillo</h3>
                 <p>Director Financiero</p>
             </div>
 
@@ -399,21 +365,17 @@
             let scrollPosition = window.scrollY + (window.innerHeight / 2);
             
             // Obtenemos las secciones
-            let portada = document.getElementById('portada');
             let seccionInicio = document.getElementById('inicio');
             let seccionMateriales = document.getElementById('materiales');
             let seccionEquipo = document.getElementById('equipo');
 
             // Definimos los colores (puedes cambiarlos si quieres otros tonos)
-            let colorPortada = '#f0f8ff';    /* Azul muy clarito (Portada Hero) */
             let colorInicio = '#e8f5e9';    /* Verde muy clarito (Energía/Ecología) */
             let colorMateriales = '#e3f2fd'; /* Azul muy clarito (Tecnología/Ingeniería) */
             let colorEquipo = '#fff3e0';     /* Naranja/Arena muy clarito (Cálido/Humano) */
 
             // Lógica para cambiar el color del body dependiendo de dónde estemos
-            if (scrollPosition < seccionInicio.offsetTop) {
-                document.body.style.backgroundColor = colorPortada;
-            } else if (scrollPosition >= seccionInicio.offsetTop && scrollPosition < seccionMateriales.offsetTop) {
+            if (scrollPosition < seccionMateriales.offsetTop) {
                 document.body.style.backgroundColor = colorInicio;
             } else if (scrollPosition >= seccionMateriales.offsetTop && scrollPosition < seccionEquipo.offsetTop) {
                 document.body.style.backgroundColor = colorMateriales;
