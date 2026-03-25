@@ -1,1 +1,279 @@
-<h1>Github Pages Test</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto: Baldosa Generadora de Energía</title>
+    <style>
+        /* Estilos generales y colores */
+        :root {
+            --primary-color: #2E7D32; /* Verde ecológico */
+            --secondary-color: #1565C0; /* Azul tecnológico */
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            scroll-behavior: smooth; /* Movimiento suave entre pestañas */
+        }
+        
+        /* Barra de navegación */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            box-sizing: border-box;
+        }
+        .logo-container img {
+            height: 50px; /* Tamaño del logo de tu universidad */
+        }
+        .group-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: background 0.3s;
+        }
+        nav a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Secciones de la página */
+        section {
+            padding: 100px 50px 50px;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        h1, h2 {
+            color: var(--secondary-color);
+            text-align: center;
+        }
+
+        /* Sección Inicio */
+        #inicio {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #e8f5e9 0%, #e3f2fd 100%);
+        }
+        .hero-text {
+            max-width: 800px;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        /* Sección Equipo */
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .team-member {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* Sección Materiales */
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .total-row {
+            font-weight: bold;
+            background-color: #e8f5e9;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="logo_universidad.png" alt="Logo Universidad">
+        </div>
+        <div class="group-name">Grupo: [NOMBRE DE TU GRUPO AQUÍ]</div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">El Proyecto</a></li>
+                <li><a href="#equipo">Integrantes</a></li>
+                <li><a href="#materiales">Materiales</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio">
+        <h1>Baldosa Generadora de Energía (Energy Harvesting)</h1>
+        <div class="hero-text">
+            <p>Nuestro proyecto busca aprovechar la energía cinética desperdiciada en las pisadas humanas para generar electricidad limpia.</p>
+            <p>Mediante un sistema mecánico de resortes, un imán de neodimio se desplaza a través de una bobina de inducción (Ley de Faraday). Esta energía es rectificada mediante un puente de diodos Schottky, almacenada en un condensador y liberada de forma controlada a través de un circuito con un Diodo Zener y un Transistor para iluminar un LED, demostrando la viabilidad de la recolección de energía a pequeña escala.</p>
+        </div>
+    </section>
+
+    <section id="equipo">
+        <h2>Nuestro Equipo de Trabajo</h2>
+        <div class="team-grid">
+            
+            <div class="team-member">
+                <img src="foto1.jpg" alt="Foto Integrante 1">
+                <h3>[Nombre Integrante 1]</h3>
+                <p>Estudiante de Ingeniería</p>
+            </div>
+
+            <div class="team-member">
+                <img src="foto2.jpg" alt="Foto Integrante 2">
+                <h3>[Nombre Integrante 2]</h3>
+                <p>Estudiante de Ingeniería</p>
+            </div>
+
+            <div class="team-member">
+                <img src="foto3.jpg" alt="Foto Integrante 3">
+                <h3>[Nombre Integrante 3]</h3>
+                <p>Estudiante de Ingeniería</p>
+            </div>
+
+            <div class="team-member">
+                <img src="foto4.jpg" alt="Foto Integrante 4">
+                <h3>[Nombre Integrante 4]</h3>
+                <p>Estudiante de Ingeniería</p>
+            </div>
+
+            <div class="team-member">
+                <img src="foto5.jpg" alt="Foto Integrante 5">
+                <h3>[Nombre Integrante 5]</h3>
+                <p>Estudiante de Ingeniería</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="materiales">
+        <h2>Lista de Materiales y Presupuesto</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Componente</th>
+                    <th>Descripción / Uso</th>
+                    <th>Costo Aprox (COP)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Imán de Neodimio</td>
+                    <td>Cilíndrico, para generar el campo magnético.</td>
+                    <td>$ 25,000</td>
+                </tr>
+                <tr>
+                    <td>Alambre de Cobre Esmaltado</td>
+                    <td>Calibre fino para enrollar la bobina.</td>
+                    <td>$ 15,000</td>
+                </tr>
+                <tr>
+                    <td>4x Diodos Schottky (1N5817)</td>
+                    <td>Para el puente rectificador de onda completa (baja caída de tensión).</td>
+                    <td>$ 2,000</td>
+                </tr>
+                <tr>
+                    <td>Condensador Electrolítico</td>
+                    <td>470µF a 16V, para almacenar la energía.</td>
+                    <td>$ 1,500</td>
+                </tr>
+                <tr>
+                    <td>Diodo Zener (3.3V)</td>
+                    <td>Actúa como interruptor de voltaje.</td>
+                    <td>$ 1,000</td>
+                </tr>
+                <tr>
+                    <td>Transistor NPN (BC547)</td>
+                    <td>Para liberar la energía de golpe.</td>
+                    <td>$ 1,000</td>
+                </tr>
+                <tr>
+                    <td>Resistencias y LED</td>
+                    <td>Indicador visual del funcionamiento.</td>
+                    <td>$ 2,000</td>
+                </tr>
+                <tr>
+                    <td>Mecánica (Resortes, acrílico/madera)</td>
+                    <td>Estructura física de la baldosa y guías.</td>
+                    <td>$ 40,000</td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="2">Costo Total Estimado:</td>
+                    <td>$ 87,500 COP</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 - Proyecto Baldosa Generadora de Energía</p>
+    </footer>
+
+</body>
+</html>
