@@ -5,20 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto: Baldosa Generadora de Energía</title>
     <style>
-        /* Estilos generales y colores */
+        /* Estilos generales y colores base */
         :root {
             --primary-color: #2E7D32; /* Verde ecológico */
             --secondary-color: #1565C0; /* Azul tecnológico */
-            --bg-color: #f4f7f6;
             --text-color: #333;
         }
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--bg-color);
+            /* Color inicial y transición suave para el efecto al bajar */
+            background-color: #e8f5e9; 
+            transition: background-color 0.8s ease; 
             color: var(--text-color);
-            scroll-behavior: smooth; /* Movimiento suave entre pestañas */
+            scroll-behavior: smooth;
         }
         
         /* Barra de navegación */
@@ -36,7 +38,7 @@
             box-sizing: border-box;
         }
         .logo-container img {
-            height: 50px; /* Tamaño del logo de tu universidad */
+            height: 50px;
         }
         .group-name {
             font-size: 1.5rem;
@@ -63,57 +65,30 @@
 
         /* Secciones de la página */
         section {
-            padding: 100px 50px 50px;
+            padding: 120px 50px 80px;
             min-height: 100vh;
             box-sizing: border-box;
-        }
-        h1, h2 {
-            color: var(--secondary-color);
-            text-align: center;
-        }
-
-        /* Sección Inicio */
-        #inicio {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            background: linear-gradient(135deg, #e8f5e9 0%, #e3f2fd 100%);
         }
+        h1, h2 {
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Sección Inicio */
         .hero-text {
             max-width: 800px;
             font-size: 1.2rem;
             line-height: 1.6;
-        }
-
-        /* Sección Equipo */
-        .team-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .team-member {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            width: 200px;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        .team-member:hover {
-            transform: translateY(-10px);
-        }
-        .team-member img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--primary-color);
-            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         /* Sección Materiales */
@@ -122,7 +97,7 @@
             margin: 0 auto;
             border-collapse: collapse;
             background: white;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             border-radius: 10px;
             overflow: hidden;
         }
@@ -143,6 +118,36 @@
             background-color: #e8f5e9;
         }
 
+        /* Sección Equipo */
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .team-member {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            margin-bottom: 15px;
+        }
+
         footer {
             background-color: #333;
             color: white;
@@ -161,8 +166,8 @@
         <nav>
             <ul>
                 <li><a href="#inicio">El Proyecto</a></li>
-                <li><a href="#equipo">Integrantes</a></li>
                 <li><a href="#materiales">Materiales</a></li>
+                <li><a href="#equipo">Integrantes</a></li>
             </ul>
         </nav>
     </header>
@@ -172,43 +177,6 @@
         <div class="hero-text">
             <p>Nuestro proyecto busca aprovechar la energía cinética desperdiciada en las pisadas humanas para generar electricidad limpia.</p>
             <p>Mediante un sistema mecánico de resortes, un imán de neodimio se desplaza a través de una bobina de inducción (Ley de Faraday). Esta energía es rectificada mediante un puente de diodos Schottky, almacenada en un condensador y liberada de forma controlada a través de un circuito con un Diodo Zener y un Transistor para iluminar un LED, demostrando la viabilidad de la recolección de energía a pequeña escala.</p>
-        </div>
-    </section>
-
-    <section id="equipo">
-        <h2>Nuestro Equipo de Trabajo</h2>
-        <div class="team-grid">
-            
-            <div class="team-member">
-                <img src="foto1.jpg" alt="Foto Integrante 1">
-                <h3>[Nombre Integrante 1]</h3>
-                <p>Estudiante de Ingeniería</p>
-            </div>
-
-            <div class="team-member">
-                <img src="foto2.jpg" alt="Foto Integrante 2">
-                <h3>[Nombre Integrante 2]</h3>
-                <p>Estudiante de Ingeniería</p>
-            </div>
-
-            <div class="team-member">
-                <img src="foto3.jpg" alt="Foto Integrante 3">
-                <h3>[Nombre Integrante 3]</h3>
-                <p>Estudiante de Ingeniería</p>
-            </div>
-
-            <div class="team-member">
-                <img src="foto4.jpg" alt="Foto Integrante 4">
-                <h3>[Nombre Integrante 4]</h3>
-                <p>Estudiante de Ingeniería</p>
-            </div>
-
-            <div class="team-member">
-                <img src="foto5.jpg" alt="Foto Integrante 5">
-                <h3>[Nombre Integrante 5]</h3>
-                <p>Estudiante de Ingeniería</p>
-            </div>
-
         </div>
     </section>
 
@@ -271,9 +239,72 @@
         </table>
     </section>
 
+    <section id="equipo">
+        <h2>Nuestro Equipo de Trabajo</h2>
+        <div class="team-grid">
+            
+            <div class="team-member">
+                <img src="foto1.jpg" alt="Foto Integrante 1">
+                <h3>[Nombre Integrante 1]</h3>
+                <p>Estudiante de Ingeniería</p>
+            </div>
+
+            <div class="team-member">
+                <img src="foto2.jpg" alt="Foto Integrante 2">
+                <h3>[Nombre Integrante 2]</h3>
+                <p>Estudiante de Ingeniería</p>
+            </div>
+
+            <div class="team-member">
+                <img src="foto3.jpg" alt="Foto Integrante 3">
+                <h3>[Nombre Integrante 3]</h3>
+                <p>Estudiante de Ingeniería</p>
+            </div>
+
+            <div class="team-member">
+                <img src="foto4.jpg" alt="Foto Integrante 4">
+                <h3>[Nombre Integrante 4]</h3>
+                <p>Estudiante de Ingeniería</p>
+            </div>
+
+            <div class="team-member">
+                <img src="foto5.jpg" alt="Foto Integrante 5">
+                <h3>[Nombre Integrante 5]</h3>
+                <p>Estudiante de Ingeniería</p>
+            </div>
+
+        </div>
+    </section>
+
     <footer>
         <p>&copy; 2026 - Proyecto Baldosa Generadora de Energía</p>
     </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            // Obtenemos la posición actual del scroll
+            let scrollPosition = window.scrollY + (window.innerHeight / 2);
+            
+            // Obtenemos las secciones
+            let seccionInicio = document.getElementById('inicio');
+            let seccionMateriales = document.getElementById('materiales');
+            let seccionEquipo = document.getElementById('equipo');
+
+            // Definimos los colores (puedes cambiarlos si quieres otros tonos)
+            let colorInicio = '#e8f5e9';    /* Verde muy clarito (Energía/Ecología) */
+            let colorMateriales = '#e3f2fd'; /* Azul muy clarito (Tecnología/Ingeniería) */
+            let colorEquipo = '#fff3e0';     /* Naranja/Arena muy clarito (Cálido/Humano) */
+
+            // Lógica para cambiar el color del body dependiendo de dónde estemos
+            if (scrollPosition < seccionMateriales.offsetTop) {
+                document.body.style.backgroundColor = colorInicio;
+            } else if (scrollPosition >= seccionMateriales.offsetTop && scrollPosition < seccionEquipo.offsetTop) {
+                document.body.style.backgroundColor = colorMateriales;
+            } else {
+                document.body.style.backgroundColor = colorEquipo;
+            }
+        });
+    </script>
 
 </body>
 </html>
