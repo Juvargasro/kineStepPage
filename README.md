@@ -47,6 +47,6 @@ Cada componente de KineStep fue elegido mediante un análisis cuidadoso para max
 ---
 
 ## 👥 Equipo Integrante
-* **[Tu Nombre]** - *[Tu Rol/Carrera]*
+* **Juan Angel Vargas Rodríguez** - *Director Científico / Ingeniería Mecatrónica*
 * **[Nombre Integrante 2]** - *[Rol/Carrera]*
 * **[Nombre Integrante 3]** - *[Rol/Carrera]*
