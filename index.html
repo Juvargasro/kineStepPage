@@ -1,389 +1,389 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KineStep: Panel Generador de Energía Cinética</title>
-    <style>
-        /* Estilos generales y colores base */
-        :root {
-            --primary-color: #2E7D32; /* Verde ecológico */
-            --secondary-color: #1565C0; /* Azul tecnológico */
-            --text-color: #333;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            /* Color inicial y transición suave para el efecto al bajar */
-            background-color: #e8f5e9; 
-            transition: background-color 0.8s ease; 
-            color: var(--text-color);
-            scroll-behavior: smooth;
-        }
-        
-        /* Barra de navegación */
-        header {
-            background-color: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 50px;
-            box-sizing: border-box;
-        }
-        .logo-container img {
-            height: 80px;
-        }
-        .group-name {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            /* Estas tres líneas lo centran de forma absoluta */
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            white-space: nowrap; /* Evita que el texto se parta en dos líneas */
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
-        nav a {
-            text-decoration: none;
-            background-color: #e8f5e9;
-            color: var(--text-color);
-            font-weight: bold;
-            padding: 8px 16px;
-            border-radius: 20px;
-            transition: background 0.3s;
-        }
-        nav a:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KineStep: Panel Generador de Energía Cinética</title>
+    <style>
+        /* Estilos generales y colores base */
+        :root {
+            --primary-color: #2E7D32; /* Verde ecológico */
+            --secondary-color: #1565C0; /* Azul tecnológico */
+            --text-color: #333;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            /* Color inicial y transición suave para el efecto al bajar */
+            background-color: #e8f5e9; 
+            transition: background-color 0.8s ease; 
+            color: var(--text-color);
+            scroll-behavior: smooth;
+        }
+        
+        /* Barra de navegación */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 50px;
+            box-sizing: border-box;
+        }
+        .logo-container img {
+            height: 80px;
+        }
+        .group-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            /* Estas tres líneas lo centran de forma absoluta */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap; /* Evita que el texto se parta en dos líneas */
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            background-color: #e8f5e9;
+            color: var(--text-color);
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: background 0.3s;
+        }
+        nav a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
 
-        /* Secciones de la página */
-        section {
-            padding: 120px 50px 80px;
-            min-height: 100vh;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        h1, h2 {
-            color: var(--secondary-color);
-            text-align: center;
-            margin-bottom: 30px;
-        }
+        /* Secciones de la página */
+        section {
+            padding: 120px 50px 80px;
+            min-height: 100vh;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        h1, h2 {
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-        /* Sección Inicio */
-        .hero-text {
-            max-width: 1200px;
-            font-size: 1.2rem;
-            line-height: 1.6;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.7);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
+        /* Sección Inicio */
+        .hero-text {
+            max-width: 1200px;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
 
-        /* Sección Materiales */
-        table {
-            width: 80%;
-            margin: 0 auto;
-            border-collapse: collapse;
-            background: white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        th, td {
-            padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        th {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-        tr:hover {
-            background-color: #f1f1f1;
-        }
-        .total-row {
-            font-weight: bold;
-            background-color: #e8f5e9;
-        }
+        /* Sección Materiales */
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .total-row {
+            font-weight: bold;
+            background-color: #e8f5e9;
+        }
 
-        /* Sección Equipo */
-        .team-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            width: 100%;
-            max-width: 1500px;
-        }
-        .team-member {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            width: 200px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        .team-member:hover {
-            transform: translateY(-10px);
-        }
-        .team-member img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--primary-color);
-            margin-bottom: 15px;
-        }
+        /* Sección Equipo */
+        .team-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+            max-width: 1500px;
+        }
+        .team-member {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            margin-bottom: 15px;
+        }
 
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-        /* Estilos para el boceto principal */
-        .boceto-img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            margin-top: 30px;
-        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        /* Estilos para el boceto principal */
+        .boceto-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin-top: 30px;
+        }
 
-        /* Estilos para las imágenes de la tabla de materiales */
-        .material-img {
-            width: 120px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        /* Estilo para los recuadros de los subtítulos */
-        .caja-subtitulo {
-            background-color: #e8f5e9; /* Un verde súper clarito */
-            padding: 10px 25px; /* Espacio adentro del cuadradito */
-            border-radius: 8px; /* Bordes redondeados */
-            display: inline-block; /* Hace que el fondo solo cubra el texto y no toda la pantalla */
-            border: 1px solid #c8e6c9; /* Un bordecito sutil */
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Sombrita elegante */
-        }
-    </style>
+        /* Estilos para las imágenes de la tabla de materiales */
+        .material-img {
+            width: 120px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        /* Estilo para los recuadros de los subtítulos */
+        .caja-subtitulo {
+            background-color: #e8f5e9; /* Un verde súper clarito */
+            padding: 10px 25px; /* Espacio adentro del cuadradito */
+            border-radius: 8px; /* Bordes redondeados */
+            display: inline-block; /* Hace que el fondo solo cubra el texto y no toda la pantalla */
+            border: 1px solid #c8e6c9; /* Un bordecito sutil */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Sombrita elegante */
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo-container">
-            <img src="Images/LogoUnal.png" alt="Logo Universidad">
-        </div>
-        <div class="group-name">GRUPO: MATERIA OSCURA</div>
-        <nav>
-            <ul>
-                <li><a href="#inicio">El Proyecto</a></li>
-                <li><a href="#materiales">Materiales</a></li>
-                <li><a href="#equipo">Integrantes</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header>
+        <div class="logo-container">
+            <img src="Images/LogoUnal.png" alt="Logo Universidad">
+        </div>
+        <div class="group-name">GRUPO: MATERIA OSCURA</div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">El Proyecto</a></li>
+                <li><a href="#materiales">Materiales</a></li>
+                <li><a href="#equipo">Integrantes</a></li>
+            </ul>
+        </nav>
+    </header>
 
-   <section id="inicio">
-        <h1 style="color: black"> KineStep: Panel Generador de Energía Cinética</h1>
-        <div class="hero-text">
-            <h3 class="caja-subtitulo" style="color: var(--primary-color); font-size: 1.5rem; margin-bottom: 10px;">¿Y si cada uno de tus pasos pudiera iluminar la ciudad?</h3>
-            <p>Nuestro <strong>KineStep</strong> transforma una acción tan cotidiana como caminar en una fuente de electricidad 100% limpia. Este proyecto nace con un objetivo claro: aprovechar la energía cinética que normalmente se desperdicia en las pisadas humanas y demostrar que la recolección de energía a pequeña escala (<em>Energy Harvesting</em>) es una solución real y viable para el futuro.</p>
-            
-            <h3 class="caja-subtitulo" style="color: var(--primary-color); font-size: 1.5rem; margin-top: 30px; margin-bottom: 10px;">Ingeniería invisible en cada pisada</h3>
-            <p>Debajo de la superficie, la magia ocurre gracias a la física pura. Un sistema mecánico de suspensión impulsa un potente imán de neodimio a través de una bobina de cobre, induciendo voltaje instantáneo mediante la Ley de Faraday. No es solo un interruptor; es un micro-generador capaz de transformar tu peso y movimiento en energía eléctrica en fracciones de segundo.</p>
-            
-            <h3 class="caja-subtitulo" style="color: var(--primary-color); font-size: 1.5rem; margin-top: 30px; margin-bottom: 10px;">De energía cruda a luz controlada</h3>
-            <p>Para que esta energía sea útil, diseñamos un "cerebro" electrónico que la domina. Un puente de diodos Schottky rectifica la corriente, enviándola a un condensador que actúa como un tanque de almacenamiento. Solo cuando la energía acumulada alcanza el punto perfecto, un circuito inteligente (controlado por un Diodo Zener y un Transistor) libera toda la carga de golpe, produciendo un destello intenso. Más que encender un LED, estamos iluminando el camino hacia las ciudades inteligentes del mañana.</p>
-            
-            <img src="Images/Boceto.png" alt="Boceto de KineStep" class="boceto-img">
-        </div>
-    </section>
+   <section id="inicio">
+        <h1 style="color: black"> KineStep: Panel Generador de Energía Cinética</h1>
+        <div class="hero-text">
+            <h3 class="caja-subtitulo" style="color: var(--primary-color); font-size: 1.5rem; margin-bottom: 10px;">¿Y si cada uno de tus pasos pudiera iluminar la ciudad?</h3>
+            <p>Nuestro <strong>KineStep</strong> transforma una acción tan cotidiana como caminar en una fuente de electricidad 100% limpia. Este proyecto nace con un objetivo claro: aprovechar la energía cinética que normalmente se desperdicia en las pisadas humanas y demostrar que la recolección de energía a pequeña escala (<em>Energy Harvesting</em>) es una solución real y viable para el futuro.</p>
+            
+            <h3 class="caja-subtitulo" style="color: var(--primary-color); font-size: 1.5rem; margin-top: 30px; margin-bottom: 10px;">Ingeniería invisible en cada pisada</h3>
+            <p>Debajo de la superficie, la magia ocurre gracias a la física pura. Un sistema mecánico de suspensión impulsa un potente imán de neodimio a través de una bobina de cobre, induciendo voltaje instantáneo mediante la Ley de Faraday. No es solo un interruptor; es un micro-generador capaz de transformar tu peso y movimiento en energía eléctrica en fracciones de segundo.</p>
+            
+            <h3 class="caja-subtitulo" style="color: var(--primary-color); font-size: 1.5rem; margin-top: 30px; margin-bottom: 10px;">De energía cruda a luz controlada</h3>
+            <p>Para que esta energía sea útil, diseñamos un "cerebro" electrónico que la domina. Un puente de diodos Schottky rectifica la corriente, enviándola a un condensador que actúa como un tanque de almacenamiento. Solo cuando la energía acumulada alcanza el punto perfecto, un circuito inteligente (controlado por un Diodo Zener y un Transistor) libera toda la carga de golpe, produciendo un destello intenso. Más que encender un LED, estamos iluminando el camino hacia las ciudades inteligentes del mañana.</p>
+            
+            <img src="Images/Boceto.png" alt="Boceto de KineStep" class="boceto-img">
+        </div>
+    </section>
 
-    <section id="materiales">
-        <h2>Lista de Materiales y Presupuesto</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Imagen</th>
-                    <th>Componente</th>
-                    <th>Descripción / Uso</th>
-                    <th>Costo Aprox (COP)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <img src="Images/Magnet.png" alt="Imán de Neodimio" class="material-img">
-                        <br><small style="font-size: 0.7em; color: gray;"></small>
-                    </td>
-                    <td>Imán de Neodimio</td>
-                    <td>Cilíndrico, para generar el campo magnético.</td>
-                    <td>$ 25,000</td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="Images/CopperWire.png" alt="Alambre de Cobre" class="material-img">
-                        <br><small style="font-size: 0.7em; color: gray;"></small>
-                    </td>
-                    <td>Alambre de Cobre Esmaltado</td>
-                    <td>Calibre fino para enrollar la bobina.</td>
-                    <td>$ 15,000</td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="Images/Diode.png" alt="Diodos Schottky" class="material-img">
-                        <br><small style="font-size: 0.7em; color: gray;"></small>
-                    </td>
-                    <td>4x Diodos Schottky (1N5817)</td>
-                    <td>Para el puente rectificador de onda completa (baja caída de tensión).</td>
-                    <td>$ 2,000</td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="Images/Capacitor.png" alt="Condensador Electrolítico" class="material-img">
-                        <br><small style="font-size: 0.7em; color: gray;"></small>
-                    </td>
-                    <td>Condensador Electrolítico</td>
-                    <td>470µF a 16V, para almacenar la energía.</td>
-                    <td>$ 1,500</td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="Images/Zener.png" alt="Diodo Zener" class="material-img">
-                        <br><small style="font-size: 0.7em; color: gray;"></small>
-                    </td>
-                    <td>Diodo Zener (3.3V)</td>
-                    <td>Actúa como interruptor de voltaje.</td>
-                    <td>$ 1,000</td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="Images/Transistor.png" alt="Transistor NPN" class="material-img">
-                        <br><small style="font-size: 0.7em; color: gray;"></small>
-                    </td>
-                    <td>Transistor NPN (BC547)</td>
-                    <td>Para liberar la energía de golpe.</td>
-                    <td>$ 1,000</td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="Images/LED.png" alt="LED y Resistencias" class="material-img">
-                        <br><small style="font-size: 0.7em; color: gray;"></small>
-                    </td>
-                    <td>Resistencias y LED</td>
-                    <td>Indicador visual del funcionamiento.</td>
-                    <td>$ 2,000</td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="Images/Mechanic.png" alt="Materiales mecánicos" class="material-img">
-                        <br><small style="font-size: 0.7em; color: gray;"></small>
-                    </td>
-                    <td>Mecánica (Resortes, acrílico/madera)</td>
-                    <td>Estructura física de la baldosa y guías.</td>
-                    <td>$ 40,000</td>
-                </tr>
-                <tr class="total-row">
-                    <td colspan="3" style="text-align: right; padding-right: 20px;">Costo Total Estimado:</td>
-                    <td>$ 87,500 COP</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+    <section id="materiales">
+        <h2>Lista de Materiales y Presupuesto</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Componente</th>
+                    <th>Descripción / Uso</th>
+                    <th>Costo Aprox (COP)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="Images/Magnet.png" alt="Imán de Neodimio" class="material-img">
+                        <br><small style="font-size: 0.7em; color: gray;"></small>
+                    </td>
+                    <td>Imán de Neodimio</td>
+                    <td>Cilíndrico, para generar el campo magnético.</td>
+                    <td>$ 25,000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="Images/CopperWire.png" alt="Alambre de Cobre" class="material-img">
+                        <br><small style="font-size: 0.7em; color: gray;"></small>
+                    </td>
+                    <td>Alambre de Cobre Esmaltado</td>
+                    <td>Calibre fino para enrollar la bobina.</td>
+                    <td>$ 15,000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="Images/Diode.png" alt="Diodos Schottky" class="material-img">
+                        <br><small style="font-size: 0.7em; color: gray;"></small>
+                    </td>
+                    <td>4x Diodos Schottky (1N5817)</td>
+                    <td>Para el puente rectificador de onda completa (baja caída de tensión).</td>
+                    <td>$ 2,000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="Images/Capacitor.png" alt="Condensador Electrolítico" class="material-img">
+                        <br><small style="font-size: 0.7em; color: gray;"></small>
+                    </td>
+                    <td>Condensador Electrolítico</td>
+                    <td>470µF a 16V, para almacenar la energía.</td>
+                    <td>$ 1,500</td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="Images/Zener.png" alt="Diodo Zener" class="material-img">
+                        <br><small style="font-size: 0.7em; color: gray;"></small>
+                    </td>
+                    <td>Diodo Zener (3.3V)</td>
+                    <td>Actúa como interruptor de voltaje.</td>
+                    <td>$ 1,000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="Images/Transistor.png" alt="Transistor NPN" class="material-img">
+                        <br><small style="font-size: 0.7em; color: gray;"></small>
+                    </td>
+                    <td>Transistor NPN (BC547)</td>
+                    <td>Para liberar la energía de golpe.</td>
+                    <td>$ 1,000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="Images/LED.png" alt="LED y Resistencias" class="material-img">
+                        <br><small style="font-size: 0.7em; color: gray;"></small>
+                    </td>
+                    <td>Resistencias y LED</td>
+                    <td>Indicador visual del funcionamiento.</td>
+                    <td>$ 2,000</td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="Images/Mechanic.png" alt="Materiales mecánicos" class="material-img">
+                        <br><small style="font-size: 0.7em; color: gray;"></small>
+                    </td>
+                    <td>Mecánica (Resortes, acrílico/madera)</td>
+                    <td>Estructura física de la baldosa y guías.</td>
+                    <td>$ 40,000</td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="3" style="text-align: right; padding-right: 20px;">Costo Total Estimado:</td>
+                    <td>$ 87,500 COP</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
 
-    <section id="equipo">
-        <h2>Nuestro Equipo de Trabajo</h2>
-        <div class="team-grid">
-            
-            <div class="team-member">
-                <!-- <img src="foto1.jpg" alt="Foto Integrante 1"> -->
-                <h3>Julián Mateus Lizarazo Duarte</h3>
-                <p>Director ejecutivo</p>
-            </div>
+    <section id="equipo">
+        <h2>Nuestro Equipo de Trabajo</h2>
+        <div class="team-grid">
+            
+            <div class="team-member">
+                <!-- <img src="foto1.jpg" alt="Foto Integrante 1"> -->
+                <h3>Julián Mateus Lizarazo Duarte</h3>
+                <p>Director ejecutivo</p>
+            </div>
 
-            <div class="team-member">
-                <!-- <img src="foto2.jpg" alt="Foto Integrante 2"> -->
-                <h3>David Santiago Cuéllar López</h3>
-                <p>Director Científico</p>
-                <!-- <p>Ing. Mecatrónica</p> -->
-            </div>
+            <div class="team-member">
+                <!-- <img src="foto2.jpg" alt="Foto Integrante 2"> -->
+                <h3>David Santiago Cuéllar López</h3>
+                <p>Director Científico</p>
+                <!-- <p>Ing. Mecatrónica</p> -->
+            </div>
 
-            <div class="team-member">
-                <!-- <img src="foto3.jpg" alt="Foto Integrante 3"> -->
-                <h3>Juan Angel Vargas Rodríguez</h3>
-                <p>Director Científico</p>
-                <!-- <p>Ing. Mecatrónica</p> -->
-            </div>
+            <div class="team-member">
+                <!-- <img src="foto3.jpg" alt="Foto Integrante 3"> -->
+                <h3>Juan Angel Vargas Rodríguez</h3>
+                <p>Director Científico</p>
+                <!-- <p>Ing. Mecatrónica</p> -->
+            </div>
 
-            <div class="team-member">
-                <!-- <img src="foto4.jpg" alt="Foto Integrante 4"> -->
-                <h3>Santiago Galindo Hernandez</h3>
-                <p>Director Creativo</p>
-                <!-- <p>Ing. Agrícola</p> -->
-            </div>
+            <div class="team-member">
+                <!-- <img src="foto4.jpg" alt="Foto Integrante 4"> -->
+                <h3>Santiago Galindo Hernandez</h3>
+                <p>Director Creativo</p>
+                <!-- <p>Ing. Agrícola</p> -->
+            </div>
 
-            <div class="team-member">
-                <!-- <img src="foto5.jpg" alt="Foto Integrante 5"> -->
-                <h3>Juan Pablo Trujillo Delgadillo</h3>
-                <p>Director Financiero</p>
-            </div>
+            <div class="team-member">
+                <!-- <img src="foto5.jpg" alt="Foto Integrante 5"> -->
+                <h3>Juan Pablo Trujillo Delgadillo</h3>
+                <p>Director Financiero</p>
+            </div>
 
-        </div>
-    </section>
+        </div>
+    </section>
 
-    <footer>
-        <p>&copy; 2026 - KineStep: Panel Generador de Energía Cinética</p>
-        <p style="font-size: 0.85em; color: #aaa; margin-top: 10px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.5;">
-            * Nota de transparencia: Todas las fotografías e ilustraciones de esta página (a excepción del logotipo institucional y fotografías del equipo) fueron generadas con asistencia de Inteligencia Artificial (Gemini/ChatGPT) con fines puramente ilustrativos y académicos para este proyecto.
-        </p>
-    </footer>
+    <footer>
+        <p>&copy; 2026 - Proyecto Baldosa Generadora de Energía</p>
+        <p style="font-size: 0.85em; color: #aaa; margin-top: 10px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.5;">
+            * Nota de transparencia: Todas las fotografías e ilustraciones de esta página (a excepción del logotipo institucional y fotografías del equipo) fueron generadas con asistencia de Inteligencia Artificial (Gemini/ChatGPT) con fines puramente ilustrativos y académicos para este proyecto.
+        </p>
+    </footer>
 
-    <script>
-        window.addEventListener('scroll', function() {
-            // Obtenemos la posición actual del scroll
-            let scrollPosition = window.scrollY + (window.innerHeight / 2);
-            
-            // Obtenemos las secciones
-            let seccionInicio = document.getElementById('inicio');
-            let seccionMateriales = document.getElementById('materiales');
-            let seccionEquipo = document.getElementById('equipo');
+    <script>
+        window.addEventListener('scroll', function() {
+            // Obtenemos la posición actual del scroll
+            let scrollPosition = window.scrollY + (window.innerHeight / 2);
+            
+            // Obtenemos las secciones
+            let seccionInicio = document.getElementById('inicio');
+            let seccionMateriales = document.getElementById('materiales');
+            let seccionEquipo = document.getElementById('equipo');
 
-            // Definimos los colores (puedes cambiarlos si quieres otros tonos)
-            let colorInicio = '#e8f5e9';    /* Verde muy clarito (Energía/Ecología) */
-            let colorMateriales = '#e3f2fd'; /* Azul muy clarito (Tecnología/Ingeniería) */
-            let colorEquipo = '#fff3e0';     /* Naranja/Arena muy clarito (Cálido/Humano) */
+            // Definimos los colores (puedes cambiarlos si quieres otros tonos)
+            let colorInicio = '#e8f5e9';    /* Verde muy clarito (Energía/Ecología) */
+            let colorMateriales = '#e3f2fd'; /* Azul muy clarito (Tecnología/Ingeniería) */
+            let colorEquipo = '#fff3e0';     /* Naranja/Arena muy clarito (Cálido/Humano) */
 
-            // Lógica para cambiar el color del body dependiendo de dónde estemos
-            if (scrollPosition < seccionMateriales.offsetTop) {
-                document.body.style.backgroundColor = colorInicio;
-            } else if (scrollPosition >= seccionMateriales.offsetTop && scrollPosition < seccionEquipo.offsetTop) {
-                document.body.style.backgroundColor = colorMateriales;
-            } else {
-                document.body.style.backgroundColor = colorEquipo;
-            }
-        });
-    </script>
+            // Lógica para cambiar el color del body dependiendo de dónde estemos
+            if (scrollPosition < seccionMateriales.offsetTop) {
+                document.body.style.backgroundColor = colorInicio;
+            } else if (scrollPosition >= seccionMateriales.offsetTop && scrollPosition < seccionEquipo.offsetTop) {
+                document.body.style.backgroundColor = colorMateriales;
+            } else {
+                document.body.style.backgroundColor = colorEquipo;
+            }
+        });
+    </script>
 
 </body>
 </html>
