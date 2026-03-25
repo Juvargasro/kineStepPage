@@ -41,9 +41,14 @@
             height: 80px;
         }
         .group-name {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: bold;
             color: var(--primary-color);
+            /* Estas tres líneas lo centran de forma absoluta */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap; /* Evita que el texto se parta en dos líneas */
         }
         nav ul {
             list-style: none;
@@ -52,6 +57,7 @@
         }
         nav a {
             text-decoration: none;
+            background-color: red;
             color: var(--text-color);
             font-weight: bold;
             padding: 8px 16px;
@@ -60,7 +66,7 @@
         }
         nav a:hover {
             background-color: var(--primary-color);
-            color: black;
+            color: white;
         }
 
         /* Secciones de la página */
@@ -171,6 +177,15 @@
             border-radius: 5px;
             border: 1px solid #ccc;
         }
+        /* Estilo para los recuadros de los subtítulos */
+        .caja-subtitulo {
+            background-color: #e8f5e9; /* Un verde súper clarito */
+            padding: 10px 25px; /* Espacio adentro del cuadradito */
+            border-radius: 8px; /* Bordes redondeados */
+            display: inline-block; /* Hace que el fondo solo cubra el texto y no toda la pantalla */
+            border: 1px solid #c8e6c9; /* Un bordecito sutil */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Sombrita elegante */
+        }
     </style>
 </head>
 <body>
@@ -190,15 +205,15 @@
     </header>
 
    <section id="inicio">
-        <h1>KineStep: Panel Generador de Energía Cinética</h1>
+        <h1 class="caja-subtitulo"> KineStep: Panel Generador de Energía Cinética</h1>
         <div class="hero-text">
-            <h3 style="color: var(--primary-color); font-size: 1.5rem; margin-bottom: 10px;">¿Y si cada uno de tus pasos pudiera iluminar la ciudad?</h3>
+            <h3 class="caja-subtitulo" style="color: var(--primary-color); font-size: 1.5rem; margin-bottom: 10px;">¿Y si cada uno de tus pasos pudiera iluminar la ciudad?</h3>
             <p>Nuestro <strong>KineStep</strong> transforma una acción tan cotidiana como caminar en una fuente de electricidad 100% limpia. Este proyecto nace con un objetivo claro: aprovechar la energía cinética que normalmente se desperdicia en las pisadas humanas y demostrar que la recolección de energía a pequeña escala (<em>Energy Harvesting</em>) es una solución real y viable para el futuro.</p>
             
-            <h3 style="color: var(--primary-color); font-size: 1.5rem; margin-top: 30px; margin-bottom: 10px;">Ingeniería invisible en cada pisada</h3>
+            <h3 class="caja-subtitulo" style="color: var(--primary-color); font-size: 1.5rem; margin-top: 30px; margin-bottom: 10px;">Ingeniería invisible en cada pisada</h3>
             <p>Debajo de la superficie, la magia ocurre gracias a la física pura. Un sistema mecánico de suspensión impulsa un potente imán de neodimio a través de una bobina de cobre, induciendo voltaje instantáneo mediante la Ley de Faraday. No es solo un interruptor; es un micro-generador capaz de transformar tu peso y movimiento en energía eléctrica en fracciones de segundo.</p>
             
-            <h3 style="color: var(--primary-color); font-size: 1.5rem; margin-top: 30px; margin-bottom: 10px;">De energía cruda a luz controlada</h3>
+            <h3 class="caja-subtitulo" style="color: var(--primary-color); font-size: 1.5rem; margin-top: 30px; margin-bottom: 10px;">De energía cruda a luz controlada</h3>
             <p>Para que esta energía sea útil, diseñamos un "cerebro" electrónico que la domina. Un puente de diodos Schottky rectifica la corriente, enviándola a un condensador que actúa como un tanque de almacenamiento. Solo cuando la energía acumulada alcanza el punto perfecto, un circuito inteligente (controlado por un Diodo Zener y un Transistor) libera toda la carga de golpe, produciendo un destello intenso. Más que encender un LED, estamos iluminando el camino hacia las ciudades inteligentes del mañana.</p>
             
             <img src="Images/Boceto.png" alt="Boceto de KineStep" class="boceto-img">
