@@ -49,6 +49,6 @@ Cada componente de KineStep fue elegido mediante un análisis cuidadoso para max
 ## 👥 Equipo Integrante
 * **Juan Diego Aldana Pérez** - *Director Ejecutivo*
 * **Juan Angel Vargas Rodríguez** - *Director Científico / Ingeniería Mecatrónica*
-* **David Santiago Cuéllar López ** - *Director Científico / Ingeniería Mecatrónica*
+* **David Santiago Cuéllar López** - *Director Científico / Ingeniería Mecatrónica*
 * **Santiago Galindo Hernandez** - *Director Creativo / Ingeniería Agrícola*
 * **Juan Pablo Trujillo Delgadillo** - *Director Financiero*
