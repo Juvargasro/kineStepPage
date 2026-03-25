@@ -154,6 +154,23 @@
             text-align: center;
             padding: 20px;
         }
+        /* Estilos para el boceto principal */
+        .boceto-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            margin-top: 30px;
+        }
+
+        /* Estilos para las imágenes de la tabla de materiales */
+        .material-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
     </style>
 </head>
 <body>
@@ -176,7 +193,9 @@
         <h1>Baldosa Generadora de Energía (Energy Harvesting)</h1>
         <div class="hero-text">
             <p>Nuestro proyecto busca aprovechar la energía cinética desperdiciada en las pisadas humanas para generar electricidad limpia.</p>
-            <p>Mediante un sistema mecánico de resortes, un imán de neodimio se desplaza a través de una bobina de inducción (Ley de Faraday). Esta energía es rectificada mediante un puente de diodos Schottky, almacenada en un condensador y liberada de forma controlada a través de un circuito con un Diodo Zener y un Transistor para iluminar un LED, demostrando la viabilidad de la recolección de energía a pequeña escala.</p>
+            <p>Mediante un sistema mecánico de resortes, un imán de neodimio se desplaza a través de una bobina de inducción (Ley de Faraday)...</p>
+            
+            <img src="imagenes/boceto.jpg" alt="Boceto de la Baldosa" class="boceto-img">
         </div>
     </section>
 
@@ -185,54 +204,27 @@
         <table>
             <thead>
                 <tr>
-                    <th>Componente</th>
+                    <th>Imagen</th> <th>Componente</th>
                     <th>Descripción / Uso</th>
                     <th>Costo Aprox (COP)</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
+                    <td><img src="imagenes/iman.jpg" alt="Imán de Neodimio" class="material-img"></td>
                     <td>Imán de Neodimio</td>
                     <td>Cilíndrico, para generar el campo magnético.</td>
                     <td>$ 25,000</td>
                 </tr>
                 <tr>
+                    <td><img src="imagenes/cobre.jpg" alt="Alambre de Cobre" class="material-img"></td>
                     <td>Alambre de Cobre Esmaltado</td>
                     <td>Calibre fino para enrollar la bobina.</td>
                     <td>$ 15,000</td>
                 </tr>
-                <tr>
-                    <td>4x Diodos Schottky (1N5817)</td>
-                    <td>Para el puente rectificador de onda completa (baja caída de tensión).</td>
-                    <td>$ 2,000</td>
-                </tr>
-                <tr>
-                    <td>Condensador Electrolítico</td>
-                    <td>470µF a 16V, para almacenar la energía.</td>
-                    <td>$ 1,500</td>
-                </tr>
-                <tr>
-                    <td>Diodo Zener (3.3V)</td>
-                    <td>Actúa como interruptor de voltaje.</td>
-                    <td>$ 1,000</td>
-                </tr>
-                <tr>
-                    <td>Transistor NPN (BC547)</td>
-                    <td>Para liberar la energía de golpe.</td>
-                    <td>$ 1,000</td>
-                </tr>
-                <tr>
-                    <td>Resistencias y LED</td>
-                    <td>Indicador visual del funcionamiento.</td>
-                    <td>$ 2,000</td>
-                </tr>
-                <tr>
-                    <td>Mecánica (Resortes, acrílico/madera)</td>
-                    <td>Estructura física de la baldosa y guías.</td>
-                    <td>$ 40,000</td>
-                </tr>
+                
                 <tr class="total-row">
-                    <td colspan="2">Costo Total Estimado:</td>
+                    <td colspan="3">Costo Total Estimado:</td> 
                     <td>$ 87,500 COP</td>
                 </tr>
             </tbody>
