@@ -37,30 +37,34 @@
             box-sizing: border-box;
         }
         .logo-container img {
-            height: 80px;
+            height: 60px; /* Reducido ligeramente para dar espacio al menú ampliado */
         }
         .group-name {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: bold;
             color: var(--primary-color);
             position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 20%;
             white-space: nowrap;
         }
         nav ul {
             list-style: none;
             display: flex;
-            gap: 20px;
+            gap: 15px;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+            justify-content: flex-end;
         }
         nav a {
             text-decoration: none;
             background-color: #e8f5e9;
             color: var(--text-color);
             font-weight: bold;
-            padding: 8px 16px;
+            padding: 8px 14px;
             border-radius: 20px;
             transition: background 0.3s;
+            font-size: 0.9rem;
         }
         nav a:hover {
             background-color: var(--primary-color);
@@ -117,23 +121,50 @@
             z-index: 2;
         }
 
-        /* Sección El Proyecto (Contenido) */
+        /* Cajas de texto (Contenido) */
         .hero-text {
-            max-width: 1200px;
+            max-width: 1000px;
             font-size: 1.2rem;
             line-height: 1.6;
             text-align: center;
-            background: rgba(255, 255, 255, 0.7);
-            padding: 30px;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 40px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            margin-top: -60px;
             z-index: 2;
+            margin-bottom: 20px;
+        }
+        .texto-alineado {
+            text-align: left;
+            margin-bottom: 20px;
         }
 
-        /* Sección Materiales */
+        /* Ecuaciones y Video */
+        .ecuacion {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            display: inline-block;
+            border: 1px dashed #ccc;
+        }
+        .video-container {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-top: 20px;
+        }
+
+        /* Sección Materiales y Resultados */
         table {
-            width: 80%;
+            width: 100%;
+            max-width: 900px;
             margin: 0 auto;
             border-collapse: collapse;
             background: white;
@@ -145,6 +176,7 @@
             padding: 15px;
             text-align: left;
             border-bottom: 1px solid #ddd;
+            font-size: 1rem;
         }
         th {
             background-color: var(--secondary-color);
@@ -165,7 +197,7 @@
             justify-content: center;
             gap: 30px;
             width: 100%;
-            max-width: 1500px;
+            max-width: 1200px;
         }
         .team-member {
             background: white;
@@ -202,8 +234,8 @@
             margin-top: 30px;
         }
         .material-img {
-            width: 120px;
-            height: 80px;
+            width: 100px;
+            height: 70px;
             object-fit: cover;
             border-radius: 5px;
             border: 1px solid #ccc;
@@ -215,6 +247,16 @@
             display: inline-block;
             border: 1px solid #c8e6c9;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        .lista-text {
+            text-align: left;
+            display: inline-block;
+            margin: 0 auto;
+        }
+        .lista-text li {
+            margin-bottom: 10px;
         }
     </style>
 </head>
@@ -228,8 +270,12 @@
         <nav>
             <ul>
                 <li><a href="#inicio">El Proyecto</a></li>
+                <li><a href="#principios">Ciencia</a></li>
+                <li><a href="#video">Video</a></li>
+                <li><a href="#resultados">Resultados</a></li>
                 <li><a href="#materiales">Materiales</a></li>
-                <li><a href="#equipo">Integrantes</a></li>
+                <li><a href="#conclusiones">Conclusiones</a></li>
+                <li><a href="#equipo">Equipo</a></li>
             </ul>
         </nav>
     </header>
@@ -240,102 +286,152 @@
     </div>
 
    <section id="inicio">
-        <div class="hero-text">
-            <h3 class="caja-subtitulo" style="color: var(--primary-color); font-size: 1.5rem; margin-bottom: 10px;">¿Y si cada uno de tus pasos pudiera iluminar la ciudad?</h3>
+        <div class="hero-text" style="margin-top: -60px;">
+            <h3 class="caja-subtitulo" style="font-size: 1.5rem;">¿Y si cada uno de tus pasos pudiera iluminar la ciudad?</h3>
             <p>Nuestro <strong>KineStep</strong> transforma una acción tan cotidiana como caminar en una fuente de electricidad 100% limpia. Este proyecto nace con un objetivo claro: aprovechar la energía cinética que normalmente se desperdicia en las pisadas humanas y demostrar que la recolección de energía a pequeña escala (<em>Energy Harvesting</em>) es una solución real y viable para el futuro.</p>
             
-            <h3 class="caja-subtitulo" style="color: var(--primary-color); font-size: 1.5rem; margin-top: 30px; margin-bottom: 10px;">Ingeniería invisible en cada pisada</h3>
-            <p>Debajo de la superficie, la magia ocurre gracias a la física pura. Un sistema mecánico de suspensión impulsa un potente imán de neodimio a través de una bobina de cobre, induciendo voltaje instantáneo mediante la Ley de Faraday. No es solo un interruptor; es un micro-generador capaz de transformar tu peso y movimiento en energía eléctrica en fracciones de segundo.</p>
+            <h3 class="caja-subtitulo" style="font-size: 1.5rem; margin-top: 30px;">Ingeniería invisible en cada pisada</h3>
+            <p>Debajo de la superficie, la magia ocurre gracias a la física pura. Un sistema mecánico de suspensión impulsa un potente imán de neodimio a través de una bobina de cobre, induciendo voltaje instantáneo mediante la Ley de Faraday.</p>
             
-            <h3 class="caja-subtitulo" style="color: var(--primary-color); font-size: 1.5rem; margin-top: 30px; margin-bottom: 10px;">De energía cruda a luz controlada</h3>
-            <p>Para que esta energía sea útil, diseñamos un "cerebro" electrónico que la domina. Un puente de diodos Schottky rectifica la corriente, enviándola a un condensador que actúa como un tanque de almacenamiento. Solo cuando la energía acumulada alcanza el punto perfecto, un circuito inteligente (controlado por un Diodo Zener y un Transistor) libera toda la carga de golpe, produciendo un destello intenso. Más que encender un LED, estamos iluminando el camino hacia las ciudades inteligentes del mañana.</p>
+            <h3 class="caja-subtitulo" style="font-size: 1.5rem; margin-top: 30px;">De energía cruda a luz controlada</h3>
+            <p>Diseñamos un "cerebro" electrónico que domina esta energía. Un puente de diodos Schottky rectifica la corriente hacia un condensador. Cuando la energía acumulada alcanza el punto perfecto, un circuito inteligente (Diodo Zener + Transistor) libera toda la carga de golpe, produciendo un destello intenso. Más que encender un LED, estamos iluminando el camino hacia las ciudades inteligentes.</p>
             
             <img src="Images/Boceto.png" alt="Boceto de KineStep" class="boceto-img">
         </div>
     </section>
 
+    <section id="principios">
+        <h2>Principios Físicos y Científicos</h2>
+        <div class="hero-text">
+            <p class="texto-alineado">El núcleo de nuestro panel generador se basa en el principio de inducción electromagnética, gobernado principalmente por la <strong>Ley de Faraday</strong>. Esta ley establece que un campo magnético que cambia con el tiempo a través de un circuito de cable inducirá una fuerza electromotriz (FEM) o voltaje.</p>
+            
+            <div class="ecuacion">
+                &epsilon; = -N (d&Phi; / dt)
+            </div>
+
+            <ul class="lista-text">
+                <li><strong>&epsilon; (Épsilon):</strong> es la fuerza electromotriz (voltaje) inducida.</li>
+                <li><strong>N:</strong> es el número de espiras (vueltas) de la bobina.</li>
+                <li><strong>d&Phi;/dt:</strong> representa la tasa de cambio del flujo magnético a lo largo del tiempo.</li>
+                <li><strong>Signo negativo:</strong> Obedece a la <em>Ley de Lenz</em>, indicando que la corriente inducida crea un campo magnético que se opone al cambio inicial que lo produjo.</li>
+            </ul>
+
+            <p class="texto-alineado" style="margin-top: 20px;">En <strong>KineStep</strong>, el cambio de flujo magnético se logra mecánicamente: al pisar la baldosa, un sistema de resortes empuja rápidamente un imán permanente a través del centro hueco de nuestra bobina.</p>
+        </div>
+    </section>
+
+    <section id="video">
+        <h2>Demostración en Video</h2>
+        <div class="hero-text">
+            <p>Observa a KineStep en acción. En esta demostración, mostramos cómo la presión mecánica ejercida sobre el panel es transformada, acondicionada y finalmente liberada como un pulso de luz utilizable.</p>
+        </div>
+        
+        <div class="video-container">
+            <iframe width="100%" height="450" src="https://www.youtube.com/embed/TU_ENLACE_AQUI" title="Demostración KineStep" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <section id="resultados">
+        <h2>Simulación y Resultados</h2>
+        <div class="hero-text">
+            <h3 class="caja-subtitulo">Diseño Experimental con Arduino</h3>
+            <p class="texto-alineado">Dado que el módulo construido es un prototipo básico para validar el principio físico, utilizamos un <strong>Arduino</strong> como etapa de simulación. Esto nos permite simular la corriente alterna continua que generaría un modelo a escala industrial (múltiples baldosas y tránsito constante), comprobando cómo nuestro circuito limpia la señal con gran estabilidad didáctica.</p>
+            
+            <h3 class="caja-subtitulo" style="margin-top: 30px;">Análisis de Datos</h3>
+            <p class="texto-alineado" style="margin-bottom: 20px;">Durante las pruebas experimentales, evaluamos el comportamiento del voltaje en el condensador integrador y su impacto sobre la carga final (LED):</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">Tiempo (s)</th>
+                        <th style="text-align: center;">Voltaje Condensador (V)</th>
+                        <th>Estado del LED</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="text-align: center;">0.0</td><td style="text-align: center;">0.00</td><td>Apagado (Región de Corte)</td></tr>
+                    <tr><td style="text-align: center;">1.0</td><td style="text-align: center;">1.20</td><td>Apagado (Cargando)</td></tr>
+                    <tr><td style="text-align: center;">2.0</td><td style="text-align: center;">2.50</td><td>Apagado (Cargando)</td></tr>
+                    <tr><td style="text-align: center;">3.0</td><td style="text-align: center;">3.40</td><td>Apagado (Umbral Zener alcanzado)</td></tr>
+                    <tr style="background-color: #fff9c4;"><td style="text-align: center;"><strong>3.5</strong></td><td style="text-align: center;"><strong>4.02</strong></td><td><strong>Disparo / Destello Limpio (Saturación)</strong></td></tr>
+                    <tr><td style="text-align: center;">3.6</td><td style="text-align: center;">0.40</td><td>Apagado (Reinicio de ciclo)</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
     <section id="materiales">
-        <h2>Lista de Materiales y Presupuesto</h2>
+        <h2>Justificación de Materiales</h2>
         <table>
             <thead>
                 <tr>
                     <th>Imagen</th>
                     <th>Componente</th>
-                    <th>Descripción / Uso</th>
-                    <th>Costo Aprox (COP)</th>
+                    <th>Justificación Técnica</th>
+                    <th>Costo (COP)</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>
-                        <img src="Images/Magnet.png" alt="Imán de Neodimio" class="material-img">
-                    </td>
-                    <td>Imán de Neodimio</td>
-                    <td>Cilíndrico, para generar el campo magnético.</td>
+                    <td><img src="Images/Magnet.png" alt="Imán de Neodimio" class="material-img"></td>
+                    <td><strong>Imán de Neodimio</strong></td>
+                    <td>Alta densidad de flujo magnético. Crucial para trayectos mecánicos cortos.</td>
                     <td>$ 25,000</td>
                 </tr>
                 <tr>
-                    <td>
-                        <img src="Images/CopperWire.png" alt="Alambre de Cobre" class="material-img">
-                    </td>
-                    <td>Alambre de Cobre Esmaltado</td>
-                    <td>Calibre fino para enrollar la bobina.</td>
+                    <td><img src="Images/CopperWire.png" alt="Alambre de Cobre" class="material-img"></td>
+                    <td><strong>Alambre Esmaltado (Fino)</strong></td>
+                    <td>Permite miles de espiras (N alto) maximizando el voltaje según la Ley de Faraday.</td>
                     <td>$ 15,000</td>
                 </tr>
                 <tr>
-                    <td>
-                        <img src="Images/Diode.png" alt="Diodos Schottky" class="material-img">
-                    </td>
-                    <td>4x Diodos Schottky (1N5817)</td>
-                    <td>Para el puente rectificador de onda completa (baja caída de tensión).</td>
+                    <td><img src="Images/Diode.png" alt="Diodos Schottky" class="material-img"></td>
+                    <td><strong>4x Diodos Schottky</strong></td>
+                    <td>Baja caída de tensión (0.2V) para rectificar la onda AC minimizando pérdidas.</td>
                     <td>$ 2,000</td>
                 </tr>
                 <tr>
-                    <td>
-                        <img src="Images/Capacitor.png" alt="Condensador Electrolítico" class="material-img">
-                    </td>
-                    <td>Condensador Electrolítico</td>
-                    <td>470µF a 16V, para almacenar la energía.</td>
+                    <td><img src="Images/Capacitor.png" alt="Condensador" class="material-img"></td>
+                    <td><strong>Condensador 470µF a 16V</strong></td>
+                    <td>Almacena energía. 16V de seguridad contra picos, 470µF carga rápidamente.</td>
                     <td>$ 1,500</td>
                 </tr>
                 <tr>
-                    <td>
-                        <img src="Images/Zener.png" alt="Diodo Zener" class="material-img">
-                    </td>
-                    <td>Diodo Zener (3.3V)</td>
-                    <td>Actúa como interruptor de voltaje.</td>
+                    <td><img src="Images/Zener.png" alt="Diodo Zener" class="material-img"></td>
+                    <td><strong>Diodo Zener (3.3V)</strong></td>
+                    <td>Compuerta electrónica que solo activa la descarga al alcanzar el voltaje ideal.</td>
                     <td>$ 1,000</td>
                 </tr>
                 <tr>
-                    <td>
-                        <img src="Images/Transistor.png" alt="Transistor NPN" class="material-img">
-                    </td>
-                    <td>Transistor NPN (BC547)</td>
-                    <td>Para liberar la energía de golpe.</td>
+                    <td><img src="Images/Transistor.png" alt="Transistor NPN" class="material-img"></td>
+                    <td><strong>Transistor NPN</strong></td>
+                    <td>Al ser activado por el Zener, libera la energía de golpe para el destello.</td>
                     <td>$ 1,000</td>
                 </tr>
                 <tr>
-                    <td>
-                        <img src="Images/LED.png" alt="LED y Resistencias" class="material-img">
-                    </td>
-                    <td>Resistencias y LED</td>
-                    <td>Indicador visual del funcionamiento.</td>
-                    <td>$ 2,000</td>
-                </tr>
-                <tr>
-                    <td>
-                        <img src="Images/Mechanic.png" alt="Materiales mecánicos" class="material-img">
-                    </td>
-                    <td>Mecánica (Resortes, acrílico/madera)</td>
-                    <td>Estructura física de la baldosa y guías.</td>
-                    <td>$ 40,000</td>
+                    <td><img src="Images/Mechanic.png" alt="Materiales mecánicos" class="material-img"></td>
+                    <td><strong>Estructura Mecánica</strong></td>
+                    <td>Acrílico, resortes y guías para el deslizamiento del imán.</td>
+                    <td>$ 41,500</td>
                 </tr>
                 <tr class="total-row">
                     <td colspan="3" style="text-align: right; padding-right: 20px;">Costo Total Estimado:</td>
-                    <td>$ 87,500 COP</td>
+                    <td>$ 87,000 COP</td>
                 </tr>
             </tbody>
         </table>
+    </section>
+
+    <section id="conclusiones">
+        <h2>Conclusiones y Futuro</h2>
+        <div class="hero-text">
+            <ul class="lista-text" style="font-size: 1.1rem; line-height: 1.8;">
+                <li><strong>✅ Validación Física:</strong> Comprobamos que un embobinado de alta densidad compensa mecánicas de corto desplazamiento para generar voltajes útiles.</li>
+                <li><strong>✅ Acondicionamiento Exitoso:</strong> El circuito logró corregir la inestabilidad de la corriente peatonal, convirtiendo picos erráticos en pulsos de luz limpios.</li>
+                <li><strong>⚠️ Limitaciones Actuales:</strong> El alambre ultrafino incrementa la resistencia interna de la bobina (pérdidas por efecto Joule). El umbral del Zener es rígido.</li>
+                <li><strong>🚀 Trabajo Futuro:</strong> Implementar un <em>Boost Converter</em> de ultra bajo consumo para reemplazar circuitería pasiva y aprovechar micro-engranajes que multipliquen la velocidad del imán al descender.</li>
+            </ul>
+        </div>
     </section>
 
     <section id="equipo">
@@ -344,22 +440,22 @@
             
             <div class="team-member">
                 <h3>Julián Mateus Lizarazo Duarte</h3>
-                <p>Director ejecutivo</p>
+                <p>Director Ejecutivo</p>
             </div>
 
             <div class="team-member">
                 <h3>David Santiago Cuéllar López</h3>
-                <p>Director Científico</p>
+                <p>Director Científico / Ing. Mecatrónica</p>
             </div>
 
             <div class="team-member">
                 <h3>Juan Angel Vargas Rodríguez</h3>
-                <p>Director Científico</p>
+                <p>Director Científico / Ing. Mecatrónica</p>
             </div>
 
             <div class="team-member">
                 <h3>Santiago Galindo Hernandez</h3>
-                <p>Director Creativo</p>
+                <p>Director Creativo / Ing. Agrícola</p>
             </div>
 
             <div class="team-member">
@@ -373,7 +469,7 @@
     <footer>
         <p>&copy; 2026 - KineStep: Panel Generador de Energía Cinética</p>
         <p style="font-size: 0.85em; color: #aaa; margin-top: 10px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.5;">
-            * Nota de transparencia: Todas las fotografías e ilustraciones de esta página (a excepción del logotipo institucional y fotografías del equipo) fueron generadas con asistencia de Inteligencia Artificial (Gemini/ChatGPT) con fines puramente ilustrativos y académicos para este proyecto.
+            * Proyecto académico - Universidad Nacional de Colombia.
         </p>
     </footer>
 
@@ -381,24 +477,30 @@
         window.addEventListener('scroll', function() {
             let scrollPosition = window.scrollY + (window.innerHeight / 2);
             
-            let portada = document.getElementById('portada');
             let seccionInicio = document.getElementById('inicio');
+            let seccionPrincipios = document.getElementById('principios');
+            let seccionVideo = document.getElementById('video');
+            let seccionResultados = document.getElementById('resultados');
             let seccionMateriales = document.getElementById('materiales');
+            let seccionConclusiones = document.getElementById('conclusiones');
             let seccionEquipo = document.getElementById('equipo');
 
-            let colorPortada = '#f0f8ff';    
-            let colorInicio = '#e8f5e9';    
-            let colorMateriales = '#e3f2fd'; 
-            let colorEquipo = '#fff3e0';     
-
             if (scrollPosition < seccionInicio.offsetTop) {
-                document.body.style.backgroundColor = colorPortada;
-            } else if (scrollPosition >= seccionInicio.offsetTop && scrollPosition < seccionMateriales.offsetTop) {
-                document.body.style.backgroundColor = colorInicio;
-            } else if (scrollPosition >= seccionMateriales.offsetTop && scrollPosition < seccionEquipo.offsetTop) {
-                document.body.style.backgroundColor = colorMateriales;
+                document.body.style.backgroundColor = '#f0f8ff'; // Portada (Azul muy claro)
+            } else if (scrollPosition >= seccionInicio.offsetTop && scrollPosition < seccionPrincipios.offsetTop) {
+                document.body.style.backgroundColor = '#e8f5e9'; // Proyecto (Verde claro)
+            } else if (scrollPosition >= seccionPrincipios.offsetTop && scrollPosition < seccionVideo.offsetTop) {
+                document.body.style.backgroundColor = '#fce4ec'; // Ciencia (Rosa claro)
+            } else if (scrollPosition >= seccionVideo.offsetTop && scrollPosition < seccionResultados.offsetTop) {
+                document.body.style.backgroundColor = '#eceff1'; // Video (Gris azulado)
+            } else if (scrollPosition >= seccionResultados.offsetTop && scrollPosition < seccionMateriales.offsetTop) {
+                document.body.style.backgroundColor = '#fff8e1'; // Resultados (Amarillo claro)
+            } else if (scrollPosition >= seccionMateriales.offsetTop && scrollPosition < seccionConclusiones.offsetTop) {
+                document.body.style.backgroundColor = '#e3f2fd'; // Materiales (Azul claro)
+            } else if (scrollPosition >= seccionConclusiones.offsetTop && scrollPosition < seccionEquipo.offsetTop) {
+                document.body.style.backgroundColor = '#f3e5f5'; // Conclusiones (Morado claro)
             } else {
-                document.body.style.backgroundColor = colorEquipo;
+                document.body.style.backgroundColor = '#fff3e0'; // Equipo (Naranja claro)
             }
         });
     </script>
